@@ -1,0 +1,6 @@
+Group_Name,Group_Link
+
+#---- Comments are included like this
+#---- exampleGroup,https://www.google.com/finance/portfolio/<groupUUID>
+group1,link1
+group2,link2
