@@ -15,10 +15,10 @@ links to the portfolios with their names. Example:
 ```csv
 Group_Name,Group_Link
 
-#---- Comments are included like this
-Group1,https://www.google.com/finance/portfolio/<groupUUID1>
-Group2,https://www.google.com/finance/portfolio/<groupUUID2>
-Group3,https://www.google.com/finance/portfolio/<groupUUID3>
+# Comments are included like this with # in beginning of line
+Group1, https://www.google.com/finance/portfolio/<groupUUID1>
+Group2, https://www.google.com/finance/portfolio/<groupUUID2>
+Group3, https://www.google.com/finance/portfolio/<groupUUID3>
 ```
 
 2. The value in `Group_Name` you provide in the file does NOT need to be the
@@ -34,7 +34,7 @@ data present in the TSV files would be added to your Google Finance Portfolio. E
 ```csv
 Symbol	Action	Date	Units	Price/unit	Currency	Group
 
-#---- Comments are included like this
+# Comments are included like this with # in beginning of line
 AMZN	BUY	2022-01-01	1.234567	97.76	USD	group1
 AMZN	BUY	2023-01-01	2.345678	99.02	USD	group2
 AMZN	SELL	2024-01-01	3.456789	95.86	USD	group3
@@ -76,6 +76,11 @@ To do that, specify the symbol using `--group` switch.
 
 13. You can use all the switches in conjunction with each other to fill
 the data as you want.
+
+14. The error messages about the stocks that couldn't be bought would be displayed as
+log messages.
+
+15. The script doesn't sell any stocks and will log which stock needs to be sold off.
 
 # Questions?
 
