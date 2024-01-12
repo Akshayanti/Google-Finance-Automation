@@ -5,7 +5,8 @@ purchases on Google Finance? This repository aims at reducing
 the manual work required to populate the portfolio(s) in Google
 Finance UI by reading from CSV/TSV files.
 
-Demo Video: <link src=readme_utils/demo.mov>
+Demo Video:  
+<video src="readme_utils/demo.mov"></video>
 
 ## How To Get Started?
 
