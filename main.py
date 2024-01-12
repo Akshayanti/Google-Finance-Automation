@@ -107,10 +107,10 @@ class GoogleFinance:
                     two_fa_enabled (bool): Adds a minute of wait after logging to allow the user to log in with their 2FA
         """
         self.driver.get("https://accounts.google.com")
-        WebDriverWait(self.driver, 10) \
+        WebDriverWait(self.driver, 5) \
             .until(EC.visibility_of_element_located((By.NAME, 'identifier'))) \
             .send_keys(f'{email}' + Keys.ENTER)
-        WebDriverWait(self.driver, 10) \
+        WebDriverWait(self.driver, 5) \
             .until(EC.visibility_of_element_located((By.NAME, 'Passwd'))) \
             .send_keys(f'{password}' + Keys.ENTER)
         sleep(5)
@@ -128,8 +128,12 @@ class GoogleFinance:
         curr_grp = None
         for item in self.stonks_data:
             symbol, action, d8, qty, price, _, group = item.strip().split()
-            if specific_grp != group or specific_symbol != symbol:
-                continue
+            if specific_grp is not None:
+                if specific_grp != group:
+                    continue
+            if specific_symbol is not None:
+                if specific_symbol != symbol:
+                    continue
             if curr_grp != group:
                 # Navigate to a different portfolio only if required. No need to reload the page every time.
                 sleep(1)
@@ -158,11 +162,11 @@ class GoogleFinance:
         """
         # Start adding a new investment
         try:
-            WebDriverWait(self.driver, 10) \
+            WebDriverWait(self.driver, 5) \
                 .until(EC.visibility_of_element_located((By.XPATH, '//span[text()="Investment"]'))) \
                 .click()
         except:
-            WebDriverWait(self.driver, 10) \
+            WebDriverWait(self.driver, 5) \
                 .until(EC.visibility_of_element_located((By.XPATH, '//span[text()="Add investments"]'))) \
                 .click()
         # Search for and input the symbol
@@ -172,7 +176,7 @@ class GoogleFinance:
         x.click()
         x.send_keys(Keys.ENTER)
         # Add quantity
-        WebDriverWait(self.driver, 10) \
+        WebDriverWait(self.driver, 5) \
             .until(EC.visibility_of_element_located((By.XPATH, '//input[@class="VfPpkd-fmcmS-wGMbrd ylDj9e"]'))) \
             .send_keys(f'{qty}')
         # Add purchase date as a string, rather than clicking on date frame
@@ -187,9 +191,10 @@ class GoogleFinance:
         cost_per_unit.clear()
         cost_per_unit.send_keys(f'{price}')
         # Save button
-        WebDriverWait(self.driver, 10) \
+        WebDriverWait(self.driver, 5) \
             .until(EC.visibility_of_element_located((By.XPATH, '//span[text()="Save"]'))) \
             .click()
+        sleep(1)
 
     def process_sale(self, symbol, qty, price, d8):
         """
@@ -208,7 +213,7 @@ if __name__ == "__main__":
     parser.add_argument("--directory", type=str, help="Directory containing the TSV and CSV files", required=True)
     parser.add_argument("--email", type=str, help="Email Id for logging in to Google", required=True)
     parser.add_argument("--password", type=str, help="Password for logging in to Google", required=True)
-    parser.add_argument("--mfa", type=bool, default=True, help="True if MFA is enabled on the account")
+    parser.add_argument("--mfa", action='store_true', help="True if MFA is enabled on the account")
     parser.add_argument("--start_date", type=str, help="Start date (DD-MM-YYYY) when to start register")
     parser.add_argument("--end_date", type=str, help="End date (DD-MM-YYYY) when to end register")
     parser.add_argument("--symbol", type=str, help="Add data for specific symbol")
