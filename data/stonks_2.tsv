@@ -1,6 +1,6 @@
 Symbol	Action	Date	Units	Price/unit	Currency	Group
 
 #Comments	are	included	like	this	with	# in beginning of line
-AMZN	BUY	2022-01-01	1.234567	97.76	USD	group2
-AMZN	BUY	2023-01-01	2.345678	99.02	USD	group2
-AMZN	SELL	2024-01-01	3.456789	95.86	USD	group2
+AAPL	BUY	2022-01-01	1.234567	97.76	USD	group2
+AAPL	BUY	2023-01-01	2.345678	99.02	USD	group2
+AAPL	SELL	2024-01-01	3.456789	95.86	USD	group2
