@@ -55,7 +55,7 @@ pip install -r requirements.txt;
 
 8. With the data filled in, run the program as follows:
 ```commandline
-python main.py --username <your_email_here> --password <your_password_here> \
+python main.py --email <your_email_here> --password <your_password_here> \
 --directory <link_to_data_directory> --mfa True
 ```
 
