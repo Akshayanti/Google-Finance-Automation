@@ -81,7 +81,7 @@ class GoogleFinance:
                     continue
                 k, v = line.strip().split(",")
                 if k not in self.portfolios.keys():
-                    self.portfolios[k] = v
+                    self.portfolios[k] = v.lstrip()
         logging.log(level=logging.INFO, msg="Finished Reading Portfolios")
 
     def remove_data_outside_dates(self):
