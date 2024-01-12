@@ -7,9 +7,9 @@ Finance UI by reading from CSV/TSV files.
 
 Demo Video:  
 
-Uploading demo.mov…
+https://github.com/Akshayanti/Google-Finance-Automation/assets/14781746/f385ba0f-9acd-42c3-b08c-a3265b155874
 
-
+https://github.com/Akshayanti/Google-Finance-Automation/blob/main/readme_utils/demo.mov
 
 ## How To Get Started?
 
