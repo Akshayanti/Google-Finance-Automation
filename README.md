@@ -5,7 +5,7 @@ purchases on Google Finance? This repository aims at reducing
 the manual work required to populate the portfolio(s) in Google
 Finance UI by reading from CSV/TSV files.
 
-Demo Video: todo
+Demo Video: <link src=readme_utils/demo.mov>
 
 ## How To Get Started?
 
@@ -56,12 +56,11 @@ pip install -r requirements.txt;
 8. With the data filled in, run the program as follows:
 ```commandline
 python main.py --email <your_email_here> --password <your_password_here> \
---directory <link_to_data_directory> --mfa True
+--directory <link_to_data_directory>
 ```
 
-9. The last switch should be set to `True` if you have MFA enabled on your account as
-it would require additional input while automatically signing in.
-In case you don't have MFA enabled, set the value to `False`.
+9. In case MFA is enabled in your account, add `--mfa` switch to your run. It will
+insert a 30s wait period which will allow you to finish the MFA for logging in.
 
 10. You can specify if you want to input data only based on the date of transaction:
     1. To only input data after a certain date, use `--start_date` switch
