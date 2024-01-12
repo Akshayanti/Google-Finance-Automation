@@ -1,6 +1,5 @@
 Group_Name,Group_Link
 
-#---- Comments are included like this
-#---- exampleGroup,https://www.google.com/finance/portfolio/<groupUUID>
+#To Comment, add a # at the beginning of the line
 group1,link1
 group2,link2

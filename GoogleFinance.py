@@ -63,7 +63,7 @@ class GoogleFinance:
         """
         with open(filename, "r", encoding="utf-8") as infile:
             for line in infile:
-                if line == "\n" or line.startswith("Symbol") or line.startswith("#----"):
+                if line == "\n" or line.startswith("Symbol") or line.startswith("#"):
                     continue
                 self.stonks_data.append(line.strip())
         self.remove_data_outside_dates()
@@ -77,7 +77,7 @@ class GoogleFinance:
         logging.log(level=logging.INFO, msg="Reading Portfolios...")
         with open(filename, "r", encoding="utf-8") as infile:
             for line in infile:
-                if line == "\n" or line.startswith("Group_Name") or line.startswith("#----"):
+                if line == "\n" or line.startswith("Group_Name") or line.startswith("#"):
                     continue
                 k, v = line.strip().split(",")
                 if k not in self.portfolios.keys():
