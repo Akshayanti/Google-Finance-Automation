@@ -1,7 +1,7 @@
+import argparse
 import logging
 import os
 import re
-import argparse
 from datetime import date
 from time import sleep
 
@@ -50,7 +50,8 @@ class GoogleFinance:
             Parameters:
                     dirname (str): Name of the directory
         """
-        self.logger.log(level=logging.INFO, msg="Reading contents of {} directory for CSV and TSV files".format(dirname))
+        self.logger.log(level=logging.INFO,
+                        msg="Reading contents of {} directory for CSV and TSV files".format(dirname))
         for item in os.listdir(dirname):
             if os.path.isfile(os.path.join(dirname, item)) and item.endswith(".tsv"):
                 self.read_tsv_file(os.path.join(dirname, item))
@@ -207,6 +208,7 @@ class GoogleFinance:
         """
         message = "Please manually sell {x} units at {y}/unit on {z} for {s}".format(x=qty, y=price, z=d8, s=symbol)
         self.logger.log(logging.INFO, message)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
