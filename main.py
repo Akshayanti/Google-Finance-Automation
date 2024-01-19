@@ -171,26 +171,37 @@ class GoogleFinance:
                 .until(EC.visibility_of_element_located((By.XPATH, '//span[text()="Add investments"]'))) \
                 .click()
         # Search for and input the symbol
-        sleep(1)
-        x = self.driver.find_element(By.XPATH, '//div[@class="mBfJdc"]//input[@class="Ax4B8 ZAGvjd"]')
-        x.send_keys(f'{symbol_name}')
-        x.click()
-        x.send_keys(Keys.ENTER)
+        WebDriverWait(self.driver, 5) \
+            .until(EC.visibility_of_element_located((By.XPATH, '//div[@class="mBfJdc"]//input[@class="Ax4B8 ZAGvjd"]'))) \
+            .send_keys(f'{symbol_name}')
+        WebDriverWait(self.driver, 5) \
+            .until(EC.visibility_of_element_located((By.XPATH, '//div[@class="mBfJdc"]//input[@class="Ax4B8 ZAGvjd"]'))) \
+            .click()
+        WebDriverWait(self.driver, 5) \
+            .until(EC.visibility_of_element_located((By.XPATH, '//div[@class="mBfJdc"]//input[@class="Ax4B8 ZAGvjd"]'))) \
+            .send_keys(Keys.ENTER)
         # Add quantity
         WebDriverWait(self.driver, 5) \
             .until(EC.visibility_of_element_located((By.XPATH, '//input[@class="VfPpkd-fmcmS-wGMbrd ylDj9e"]'))) \
             .send_keys(f'{qty}')
         # Add purchase date as a string, rather than clicking on date frame
+        WebDriverWait(self.driver, 5) \
+            .until(EC.visibility_of_element_located((By.XPATH, '//input[@class="whsOnd zHQkBf"]'))) \
+            .click()
+        WebDriverWait(self.driver, 5) \
+            .until(EC.visibility_of_element_located((By.XPATH, '//input[@class="whsOnd zHQkBf"]'))) \
+            .click()
+        WebDriverWait(self.driver, 5) \
+            .until(EC.visibility_of_element_located((By.XPATH, '//input[@class="whsOnd zHQkBf"]'))) \
+            .send_keys(f'{d8}')
         sleep(1)
-        purchase_date = self.driver.find_element(By.XPATH, '//input[@class="whsOnd zHQkBf"]')
-        purchase_date.click()
-        purchase_date.click()
-        purchase_date.send_keys(f'{d8}')
         # Add cost/unit after clearing the already prefilled value
-        sleep(1)
-        cost_per_unit = self.driver.find_element(By.XPATH, '//input[@class="VfPpkd-fmcmS-wGMbrd Is59ac"]')
-        cost_per_unit.clear()
-        cost_per_unit.send_keys(f'{price}')
+        WebDriverWait(self.driver, 5) \
+            .until(EC.visibility_of_element_located((By.XPATH, '//input[@class="VfPpkd-fmcmS-wGMbrd Is59ac"]'))) \
+            .clear()
+        WebDriverWait(self.driver, 5) \
+            .until(EC.visibility_of_element_located((By.XPATH, '//input[@class="VfPpkd-fmcmS-wGMbrd Is59ac"]'))) \
+            .send_keys(f'{price}')
         # Save button
         WebDriverWait(self.driver, 5) \
             .until(EC.visibility_of_element_located((By.XPATH, '//span[text()="Save"]'))) \
