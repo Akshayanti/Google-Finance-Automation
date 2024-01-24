@@ -18,9 +18,9 @@ https://github.com/Akshayanti/Google-Finance-Automation/assets/14781746/f385ba0f
 Group_Name,Group_Link
 
 # Comments are included like this with # in beginning of line
-Group1, https://www.google.com/finance/portfolio/<groupUUID1>
-Group2, https://www.google.com/finance/portfolio/<groupUUID2>
-Group3, https://www.google.com/finance/portfolio/<groupUUID3>
+group1, https://www.google.com/finance/portfolio/<groupUUID1>
+group2, https://www.google.com/finance/portfolio/<groupUUID2>
+group3, https://www.google.com/finance/portfolio/<groupUUID3>
 ```
 
 2. The value in `Group_Name` you provide in the file does NOT need to be the
